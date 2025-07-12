@@ -22,7 +22,7 @@ llm = Bedrock(
 )
 
 
-
+##
 def my_chatbot(language, user_text):
     prompt = PromptTemplate(
         input_variables=["language", "user_text"],
