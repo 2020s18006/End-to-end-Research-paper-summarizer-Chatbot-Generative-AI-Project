@@ -12,7 +12,7 @@ bedrock_client = boto3.client(
     region_name = "us-east-1",
 )
 
-model_id = "ai21.j2-mid-v1"
+model_id = "anthropic.claude-v2"
 
 
 llm = Bedrock(
@@ -36,9 +36,9 @@ def my_chatbot(language, user_text):
 
 
 
-st.title("Bedrock Chatbot Demo")
+st.title("Bedrock Chatbot")
 
-language = st.sidebar.selectbox("Language", ["english", "spanish", "hindi"])
+language = st.sidebar.selectbox("Language", ["english", "tamil", "hindi"])
 
 if language:
     user_text = st.sidebar.text_area(label="what is your question?",

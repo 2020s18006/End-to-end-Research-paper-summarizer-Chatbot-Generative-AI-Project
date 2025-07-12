@@ -31,7 +31,7 @@ bedrock=boto3.client(service_name="bedrock-runtime", region_name = "us-east-1")
 
 
 # Get embedding model
-bedrock_embeddings=BedrockEmbeddings(model_id="amazon.titan-embed-text-v1",client=bedrock)
+bedrock_embeddings=BedrockEmbeddings(model_id="cohere.embed-multilingual-v3",client=bedrock)
 
 
 def get_documents():
@@ -55,8 +55,8 @@ def get_vector_store(docs):
 
 
 def get_llm():
-    llm=Bedrock(model_id="meta.llama2-70b-chat-v1",client=bedrock,
-                model_kwargs={'max_gen_len':512})
+    llm=Bedrock(model_id="anthropic.claude-v2",client=bedrock,
+                model_kwargs={"max_tokens_to_sample": 512})
     
     return llm
 
@@ -84,8 +84,8 @@ def get_response_llm(llm,vectorstore_faiss,query):
 
 
 def main():
-    st.set_page_config("RAG Demo")
-    st.header("End to end RAG Application")
+    st.set_page_config("Research Paper Summarizer")
+    st.header("Research Paper Summarizer")
     user_question = st.text_input("Ask a Question from the PDF Files")
 
 
